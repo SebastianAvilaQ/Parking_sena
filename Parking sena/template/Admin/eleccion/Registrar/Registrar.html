@@ -1,0 +1,29 @@
+{% extends "plantilla_base.html" %}
+{% block title %}Home{% endblock %}
+{% block name %}Inicio{% endblock %}
+{% block content %}
+<body>
+    <a class="volver" href="{{url_for('eleccionAd')}}">Volver</a>
+
+    <div class="prueba">
+        
+        <header>
+            <div class="contenedor" id="uno">
+                <a href="/RegistroUsuario"><p class="texto">Usuarios</p></a>
+            </div>
+            <div class="contenedor" id="dos">
+                <a href="/RegistroVisitante"><p class="texto">Visitantes</p></a>
+            </div>
+            <div class="contenedor" id="tres">
+                <a href="/RegistroVehiculo"><p class="texto">Vehiculos</p></a>
+            </div>
+            <div class="contenedor" id="cuatro">
+                <a href="/RegistroArtefactoExterno"><p class="texto">Artefactos Externos</p></a>
+            </div>
+            <div class="contenedor" id="cinco">
+                <a href="/RegistroEstadovisitante"><p class="texto">Estado Visitante</p></a>
+            </div>
+        </header>
+    </div>
+</body>
+{% endblock %}

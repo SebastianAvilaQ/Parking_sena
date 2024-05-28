@@ -1,0 +1,44 @@
+{% extends "plantilla_base.html" %}
+{% block title %}Registro de Usuarios{% endblock %}
+{% block name %}Registro de Usuarios{% endblock %}
+{% block content %}
+<div class="formulario">
+    <a class="volver" href="{{url_for('registrar')}}">Volver</a>
+    <form action="RegistroUsuario" method="POST" id="form">
+
+        <div class="campo">
+            <input type="text" name="nombres" id="nombresid">
+            <label>Nombres</label>
+        </div>
+
+        <div class="campo">
+            <input type="text" name="apellidos" id="apellidosid">
+            <label>Apellidos</label>
+        </div>
+
+        <div class="campo">
+            <input type="number" name="numDoc" id="numDoc" >
+            <label>Numero de documento</label>
+        </div>
+
+        <div class="campo">
+            <input type="text" name="correoElectronico" id="correoElectronicoid">
+            <label>Correo electrónico</label>
+        </div>
+        
+        <script src="{{url_for('static', filename='./js/mostrarContra.js')}}"></script>
+        <button id="Boton" onclick="validarFormularioUsuario()">Registrar</button>
+        <p class="warnings" id="warnings"></p>
+    </form>
+    <script>
+        document.querySelector('#Boton').addEventListener('click', function(event) {
+            if (!confirm('¿Desea registrar los datos?')) {
+                event.preventDefault();
+            }
+        });
+    </script>
+    
+</div>
+</body>
+
+{% endblock %}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tabla de datos</title>
+    <link rel="shortcut icon" href="/static/img/logo1.ico" />
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/style.css')}}">
+    <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link rel="" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css">
+</head>     
+<body>
+    <header>
+        
+		
+		
+        <div class="logo">
+            <img src="/static/img/logo.png" alt="Mi Logo">
+        </div>
+        <div class="linea">
+            <img src="/static/img/linea.png" alt="Mi linea">
+        </div>
+        <nav>
+            <ul>
+                <li>{% block name %}{% endblock %}</li>
+                <li>PARKING SENA</li>
+            </ul>
+        </nav>
+    </header>
+    {% block content %}
+    <a class="volver" href="{{url_for('ListasUsuarios')}}">Volver</a>
+    <a class="volver" href="{{url_for('reportVisNOW')}}">Reporte del dia</a>
+    <a class="volver" href="{{url_for('ReportElecionEstad')}}">Reporte de Año</a>
+    <h1>Tabla de Estado Visitantes</h1>
+    <table id="example" class="display"  style="width:100%">
+        <thead>
+            <tr>
+                <th name="#">id</th>
+                <th name="fechaEstado">Fecha Estado</th>
+                <th name="horaEstado">Hora Estado</th>
+                <th name="tipoEstado">tipo Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%  for ev in data %}
+                <tr>
+                    <td>{{ev.idEstadoPk}}</td>
+                    <td>{{ev.fechaEstado}}</td>
+                    <td>{{ev.horaEstado}}</td>
+                    <td>{{ev.tipoEstado}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('generar_reporte_Entrada') }}" class="btn btn-primary">Descargar PDF</a>
+    {% endblock %}
+    <footer>
+        <nav>
+            <ul>
+                <li>CALLE 52 #13 - 65</li>
+                <li>PARKING SENA 2023</li>
+            </ul>
+        </nav>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var table = $('#example').DataTable({
+                orderCellsTop: true,
+                fixedHeader: true 
+            });
+            $('#example thead tr').clone(true).appendTo( '#example thead' );
+            $('#example thead tr:eq(1) th').each( function (i) {
+                var title = $(this).text();
+                $(this).html( '<input type="text" placeholder="Buscar...'+title+'" />' );
+                $( 'input', this ).on( 'keyup change', function () {
+                    if ( table.column(i).search() !== this.value ) {
+                        table
+                            .column(i)
+                            .search( this.value )
+                            .draw();
+                    }
+                } );
+            } );   
+        }); 
+    </script>
+</body>
+</html>

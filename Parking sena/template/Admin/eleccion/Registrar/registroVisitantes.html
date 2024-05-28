@@ -1,0 +1,37 @@
+{% extends "plantilla_base.html" %}
+{% block title %}Registro de Visitante{% endblock %}
+{% block name %}Registro de Visitante{% endblock %}
+{% block content %}
+<div class="formulario">
+    <a class="volver" href="{{url_for('registrar')}}">Volver</a>
+    <form action="RegistroVisitante" method="POST">
+        <div class="campo">
+            <input type="text" name="nombresVisitante" id="nombresVisitanteid">
+            <label>Nombres</label>
+        </div>
+        <div class="campo">
+            <input type="text" name="apellidosVisitante" id="apellidosVisitanteid">
+            <label>Apellidos</label>
+        </div>
+        <div class="campo">
+            <input type="text" name="numDocVisitante" id="numDocVisitanteid">
+            <label>Numero de documento</label>
+        </div>
+        <div class="campo">
+            <input type="text" name="tipoVisitante" id="tipoVisitanteid">
+            <label>Tipo de visitante</label>
+        </div>
+        <script src="{{url_for('static', filename='./js/mostrarContra.js')}}"></script>
+        <button class="btn" onclick="validarFormularioVisitantes()">Registrar</button>
+    </form>
+    <script>
+        document.querySelector('.btn').addEventListener('click', function(event) {
+            if (!confirm('¿Desea registrar los datos?')) {
+                event.preventDefault();
+            }
+        });
+    </script>
+</div>
+</body>
+
+{% endblock %}

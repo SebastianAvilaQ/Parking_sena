@@ -1,0 +1,16 @@
+{% extends "plantilla_base.html" %}
+{% block title %}Inicio{% endblock %}
+{% block name %}Inicio{% endblock %}
+{% block content %}
+<a class="volver" href="{{url_for('home')}}">Cerra Sesion</a>
+    <div class="prueba1">
+        
+        <header>
+            <div class="contenedorUsu" id="Registro2">
+                <a href="/RegistrarUsuario"><p class="texto">Registrar</p></a>
+            </div>
+            <div class="contenedorUsu" id="Lista2">
+                <a href="/ListasUsuarios"><p class="texto">Ver Listas</p></a>
+        </header>
+    </div>
+{% endblock %}

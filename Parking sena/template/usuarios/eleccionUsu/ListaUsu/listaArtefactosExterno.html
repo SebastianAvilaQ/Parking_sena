@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tabla de datos</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+
+</head>
+<body>
+	<a class="volver" href="{{url_for('ListasUsuarios')}}">Volver</a>
+	<h1>Tabla de Artefactos Externos</h1>
+	<table id="example" class="display"  style="width:75%">
+		<thead>
+			<tr>
+				<th name="#">id</th>
+				<th name="nombreArtefacto">Nombre Artefacto</th>
+				<th name="descripcionArtefacto">Descripcion</th>
+				<th scope="col">edit</th>
+
+				
+			</tr>	
+		</thead>
+		<tbody>
+			{%  for AE in data %}
+				<tr>
+					<td>{{AE.IdArtefactoPk}}</td>
+					<td>{{AE.nombreArtefacto}}</td>
+					<td>{{AE.descripcionArtefacto}}</td>
+                    <td><button class="btn btn-primary btn-sm" id="btn-edit{{AE.IdArtefactoPk}}" data-bs-toggle="modal" data-bs-target="#modal{{AE.IdArtefactoPk}}">edit</button></td>
+				</tr>
+                
+
+				
+
+		
+			{% endfor %}
+
+			<a href="{{ url_for('generar_reporte_artefactos') }}" class="btn btn-primary">Descargar PDF</a>
+        </tbody>
+	</table>
+</body>
+</html>

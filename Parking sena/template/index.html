@@ -1,0 +1,23 @@
+{% extends "plantilla_base.html" %}
+{% block title %}Login{% endblock %}
+{% block name %}Inicio de sesión{% endblock %}
+{% block content %}
+    <div class="formulario">
+        <h1>Inicio de sesión</h1>
+        <form action="acceso-login" method="post">
+            <div class="campo">
+                <input type="email" name="txtCorreo" id="txtCorreo" required>
+                <label>Correo electrónico</label>
+            </div>
+            <div class="campo">
+                <input type="password" name="txtPassword"  id="password" required>
+                <label>Contraseña</label>
+                <span id="show-password-button" class="icon" onclick="mostrarContrasena()"></span>
+            </div>
+            
+            <script src="{{url_for('static', filename='./js/mostrarContra.js')}}"></script>
+            <button class="btn">Ingresar</button>
+            <a href="{{ url_for('recuperarContra') }}">Recuperar contraseña</a>
+        </form>
+    </div>
+{% endblock %}

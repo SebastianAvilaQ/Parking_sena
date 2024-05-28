@@ -1,0 +1,463 @@
+header {
+  background-color: #238276;
+  padding: 45px;
+  position: fixed;
+  top: 0;
+  width: 95%;
+}
+
+.icon {
+  position: absolute;
+  right: 10px;
+  top: 40%;
+  cursor: pointer;
+  background: url('../img/ocultar.png');
+  width: 15px;
+  height: 15px;
+}
+
+
+.visible-password {
+  background-image: url('../img/ocultar.png');
+  width: 15px;
+  height: 15px;
+}
+
+
+ul {
+  color: white;
+  margin: 0;
+}
+
+ul li:nth-child(1) {
+  list-style-type: none;
+  font-weight: bold;
+  margin: 0;
+  left: 80%;
+  position: absolute;
+  top: 40%;
+  font-size: 20px;
+}
+
+ul li:nth-child(2) {
+  list-style-type: none;
+  font-weight: bold;
+  margin: 0;
+  right: 70%;
+  position: absolute;
+  top: 36%;
+  font-size: 25px;
+}
+
+body {
+  background-image: url("/static/img/Fondo.png");
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.logo {
+  background-attachment: fixed;
+  text-align: left;
+}
+
+.logo img {
+  margin: 0;
+  position: absolute;
+  top: -46px;
+  width: 197px;
+  height: 180px;
+}
+
+.linea {
+  text-align: left;
+  color: white;
+}
+
+.linea img {
+  margin: 0;
+  right: 78.5%;
+  position: absolute;
+  top: -7px;
+  width: 197px;
+  height: 100px;
+}
+
+.formulario {
+  background-color: white;
+  opacity: 0.8;
+  border-radius: 30px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 300px;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+}
+
+.campo {
+  position: relative;
+  margin: 40px 0 ;
+
+}
+
+input {
+  border-radius: 15px;
+  height: 24px;
+  width: 93%;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+label {
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  color: black;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  font-weight: bold;
+}
+
+input:focus + label,
+input:valid + label {
+  top: -20px;
+  left: 5px;
+  font-size: 12px;
+  color: black;
+}
+table{
+  position: relative;
+  left: -100px;
+  background-color: white;
+  opacity: 0.8;
+  align-content: center;
+}
+.volve{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  text-decoration: none;
+  background-color: #238276;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 100px;
+  cursor: pointer;
+}
+
+.btn {
+  background-color: #238276;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 100px;
+  cursor: pointer;
+}
+
+footer {
+  background-color: #238276;
+  padding: 35px;
+  position: absolute;
+  width: 95%;
+  bottom: 0;
+}
+
+footer nav ul li {
+  font-weight: bold;
+  left: 2%;
+  position: absolute;
+  top: 40%;
+}
+
+footer nav ul li {
+  font-weight: bold;
+  margin: 0;
+  right: 1%;
+  position: absolute;
+  top: 36%;
+}
+
+.noo{
+  text-align: center;
+  font-size: 80%;
+}header {
+  background-color: #238276;
+  padding: 45px;
+  position: fixed;
+  top: 0;
+  width: 95%;
+}
+
+ul {
+  color: white;
+  margin: 0;
+}
+
+ul li:nth-child(1) {
+  list-style-type: none;
+  font-weight: bold;
+  margin: 0;
+  left: 80%;
+  position: absolute;
+  top: 40%;
+  font-size: 20px;
+}
+
+ul li:nth-child(2) {
+  list-style-type: none;
+  font-weight: bold;
+  margin: 0;
+  right: 70%;
+  position: absolute;
+  top: 36%;
+  font-size: 25px;
+}
+
+body {
+  background-image: url("/static/img/Fondo.png");
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.logo {
+  background-attachment: fixed;
+  text-align: left;
+}
+
+.logo img {
+  margin: 0;
+  position: absolute;
+  top: -46px;
+  width: 197px;
+  height: 180px;
+}
+
+.linea {
+  text-align: left;
+  color: white;
+}
+
+.linea img {
+  margin: 0;
+  right: 78.5%;
+  position: absolute;
+  top: -7px;
+  width: 197px;
+  height: 100px;
+}
+
+.formulario {
+  background-color: white;
+  opacity: 0.8;
+  border-radius: 30px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 300px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.campo {
+  position: relative;
+  margin: 40px 0 ;
+
+}
+
+input {
+  border-radius: 15px;
+  height: 24px;
+  width: 93%;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+label {
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  color: black;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  font-weight: bold;
+}
+
+input:focus + label,
+input:valid + label {
+  top: -20px;
+  left: 5px;
+  font-size: 12px;
+  color: black;
+}
+
+.btn {
+  background-color: #238276;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 100px;
+  cursor: pointer;
+}
+
+footer {
+  background-color: #238276;
+  padding: 35px;
+  position: absolute;
+  width: 95%;
+  bottom: 0;
+}
+
+footer nav ul li {
+  font-weight: bold;
+  left: 2%;
+  position: absolute;
+  top: 40%;
+}
+
+footer nav ul li {
+  font-weight: bold;
+  margin: 0;
+  right: 1%;
+  position: absolute;
+  top: 36%;
+}
+
+.noo{
+  text-align: center;
+  font-size: 80%;
+}
+
+
+div.prueba header{
+  position: relative;;
+  margin:250px auto;
+  width: 1000px;
+  height: 250px;
+  background-color:transparent;
+}
+
+
+.botonReport {
+  flex: 1;
+  margin: 5px;
+  background-color: #238276;
+  border: none;
+  border-radius: 20px;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+}
+
+div.prueba1 header{
+  position: relative;;
+  margin:250px auto;
+  height: 250px;
+  background-color:transparent;
+}
+
+div.contenedor{
+  width: 166px;
+  height: 230px;
+  float: left;
+  -webkit-animation:height 4.s;
+}
+
+div.contenedorE{
+  width: 166px;
+  height: 230px;
+  float: left;
+  -webkit-animation:height 4.s;
+}
+
+div.contenedorUsu{
+  justify-content: center;
+  width: 166px;
+  height: 230px;
+  float: left;
+  -webkit-animation:height 4.s;
+}
+
+div#uno{
+  background-color: rgb(35 130 118);
+}
+div#dos{
+  background-color: rgb(89 181 72);
+}
+div#tres{
+  background-color: rgb(35 130 118);
+}
+div#cuatro{
+  background-color: rgb(89 181 72);
+}
+div#cinco{
+  background-color: rgb(35 130 118);
+}
+div#seis{
+  background-color: rgb(89 181 72);
+}
+
+div#Registro{
+  background-color: rgb(35 130 118);
+}
+
+div#Lista{
+  background-color: rgb(89 181 72);
+}
+
+
+div#Registro2{
+  background-color: rgb(35 130 118);
+}
+
+div#Lista2{
+  background-color: rgb(89 181 72);
+}
+
+
+
+p.texto{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 1.2em;
+  color: black;
+  text-align: center;
+  padding-top: 65px;
+  opacity: .6;
+}
+
+div.contenedor:hover{
+  height: 250px;
+}
+
+div.contenedor:hover p.texto{
+  padding-top: 85px;
+}

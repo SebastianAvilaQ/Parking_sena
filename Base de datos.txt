@@ -1,0 +1,56 @@
+CREATE database SENA_PARKING;
+
+use SENA_PARKING;
+
+create table Rol(
+idRolPk int auto_increment primary key,
+tipoRol varchar (50) not null
+);
+
+create table Usuario(
+idUsuarioPk integer auto_increment primary key not null,
+nombresUsuario varchar(50) not null,
+apellidosUsuario varchar(50) not null,
+numDocUsuario int not null,
+correoUsuario varchar(50) not null,
+passwordUsuario varchar (20) not null,
+idRolfk int not null,
+constraint Rol_Usu foreign key(idRolFK)
+references Rol(idRolPk)
+);
+
+create table Visitante(
+idVisitantePk integer auto_increment primary key not null,
+nombresVisitante varchar(50) not null,
+apellidosVisitante varchar(50) not null,
+numDocVisitante int not null,
+tipoVisitante varchar (20) not null
+);
+
+create table EstadoVisitante(
+idEstadoPk integer auto_increment primary key not null,
+fechaEstado date not null,
+horaEstado time not null,
+tipoEstado varchar(50) not null,
+idVisitanteFk int not null,
+constraint Est_Vis foreign key(idVisitanteFk)
+references Visitante(idVisitantePk)
+);
+
+create table Vehiculo(
+idVehiculo integer auto_increment primary key not null,
+placaVehiculo varchar(6),
+tipoVehiculo varchar(20) not null,
+idVisitantefk int not null,
+constraint Veh_Vis foreign key(idVisitanteFk)
+references Visitante(idVisitantePk)    
+);
+
+create table ArtefactosExternos(
+IdArtefactoPk integer auto_increment primary key not null,
+nombreArtefacto varchar(100) not null,
+descripcionArtefacto varchar(200) not null,
+idVisitantefk int not null,
+constraint Art_Vis foreign key(idVisitanteFk)
+references Visitante(idVisitantePk)
+);

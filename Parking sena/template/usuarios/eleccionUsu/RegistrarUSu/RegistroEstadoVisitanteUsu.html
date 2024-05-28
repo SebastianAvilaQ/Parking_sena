@@ -1,0 +1,26 @@
+{% extends "plantilla_base.html" %}
+{% block title %}Registro de Estado Visitante{% endblock %}
+{% block name %}Registro de Estado Visitante{% endblock %}
+{% block content %}
+<div class="formulario">
+    <a class="volver" href="{{url_for('registrarUsu')}}">Volver</a>
+    <form action="RegistroEstadovisitante" method="POST">
+        <div class="campo">
+            <input type="text" name="fechaEstado" id="fechaEstadoid" required>
+            <label>Fecha Estado</label>
+        </div>
+        <div class="campo">
+            <input type="time" name="horaEstado" id="horaEstadoid">
+            <label>Hora Del Estado</label>
+        </div>
+        <div class="campo">
+            <input type="date" name="tipoEstado" id="fechaEstadoid">
+            <label>Tipo de Estado</label>
+        </div>
+        <script src="{{url_for('static', filename='./js/mostrarContra.js')}}"></script>
+        <button class="btn" onclick="validarFormularioEstadoVehi()">Registrar</button>
+    </form>
+</div>
+</body>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "plantilla_base.html" %}
+{% block title %}Registro de Usuarios{% endblock %}
+{% block name %}Registro de Usuarios{% endblock %}
+{% block content %}
+<body>
+    <div class="formulario">
+        <form action="RegistroSalidaVehiculo" method="POST">
+            <div class="campo">
+                <input type="text" name="placaSalida" required>
+                <label>Placa</label>
+            </div>
+            <div class="campo">
+                <input type="time" name="horaSalida" required>
+                <label>Hora Salida</label>
+            </div>
+            <div class="campo">
+                <input type="date" name="fechaSalida" required>
+                <label>Fecha Salida</label>
+            </div>
+            <button class="btn">Registrar</button>
+        </form>
+    </div>
+</body>
+
+{% endblock %}

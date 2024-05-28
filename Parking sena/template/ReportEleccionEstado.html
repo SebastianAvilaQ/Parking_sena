@@ -1,0 +1,22 @@
+{% extends "plantilla_base.html" %}
+{% block title %}Registro de Artefactos{% endblock %}
+{% block name %}Reporte {% endblock %}
+{% block content %}
+
+<div class="botonContainer">
+    <button class="botonReport" href="{{url_for('reportVisMonhtEne')}}">enero</button>
+    <button class="botonReport" href="{{url_for('reportVisMonhtFeb')}}">febrero</button>
+    <button class="botonReport" href="{{url_for('reportVisMonhtMar')}}">marzp</button>
+    <button class="botonReport" href="{{url_for('reportVisMonhtAbr')}}">abril</button>
+    <button class="botonReport" href="{{url_for('reportVisMonhtMay')}}">mayo</button>
+    <button class="botonReport" href="{{url_for('reportVisMonhtJun')}}">junio</button>
+    <button class="botonReport" href="{{url_for('reportVisMonhtJul')}}">julio</button>
+    <button class="botonReport" href="{{url_for('reportVisMonhtAgo')}}">agosto</button>
+    <button class="botonReport" href="{{url_for('reportVisMonhtSep')}}">septiembre</button>
+    <button class="botonReport" href="{{url_for('reportVisMonhtOct')}}">octubre</button>
+    <button class="botonReport" href="{{url_for('reportVisMonhtNov')}}">novimrbe</button>
+    <button class="botonReport" href="{{url_for('reportVisMonhtDic')}}">diciembre</button>
+  </div>
+
+
+{% endblock %}

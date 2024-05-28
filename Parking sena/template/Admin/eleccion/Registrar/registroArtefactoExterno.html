@@ -1,0 +1,29 @@
+{% extends "plantilla_base.html" %}
+{% block title %}Registro de Artefactos{% endblock %}
+{% block name %}Registro de Artefactos{% endblock %}
+{% block content %}
+<div class="formulario">
+    <a class="volver" href="{{url_for('registrar')}}">Volver</a>
+    <form action="RegistroArtefactoExterno" method="POST">
+        <div class="campo">
+            <input type="text" name="nombreArtefactosExternos" id="nombreArtefactosExternosid">
+            <label>Nombre Artefacto</label>
+        </div>
+        <div class="campo">
+            <input type="text" name="descripcionArtefactosExternos" id="descripcionArtefactosExternosid">
+            <label>Decripcion Artefacto</label>
+        </div>
+        <script src="{{url_for('static', filename='./js/mostrarContra.js')}}"></script>
+        <button class="btn" onclick="validarFormularioArtefactosExternos()">Registrar</button>
+    </form>
+    <script>
+        document.querySelector('.btn').addEventListener('click', function(event) {
+            if (!confirm('¿Desea registrar el artefacto externo?')) {
+                event.preventDefault();
+            }
+        });
+    </script>
+</div>
+</body>
+
+{% endblock %}

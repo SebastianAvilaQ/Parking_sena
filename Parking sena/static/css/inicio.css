@@ -1,0 +1,50 @@
+
+
+div.prueba header{
+    position: relative;;
+    margin:250px auto;
+    width: 1000px;
+    height: 250px;
+    background-color:transparent;
+}
+
+div.contenedor{
+    width: 200px;
+    height: 230px;
+    float: left;
+    -webkit-animation:height 4.s;
+}
+
+div#uno{
+    background-color: rgb(35 130 118);
+}
+div#dos{
+    background-color: rgb(89 181 72);
+}
+div#tres{
+    background-color: rgb(35 130 118);
+}
+div#cuatro{
+    background-color: rgb(89 181 72);
+}
+div#cinco{
+    background-color: rgb(35 130 118);
+}
+
+
+p.texto{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.2em;
+    color: black;
+    text-align: center;
+    padding-top: 65px;
+    opacity: .6;
+}
+
+div.contenedor:hover{
+    height: 250px;
+}
+
+div.contenedor:hover p.texto{
+    padding-top: 85px;
+}

@@ -1,0 +1,29 @@
+{% extends "plantilla_base.html" %}
+{% block title %}Registro de Vehiculo{% endblock %}
+{% block name %}Registro de Vehiculo{% endblock %}
+{% block content %}
+<div class="formulario">
+    <a class="volver" href="{{url_for('registrar')}}">Volver</a>
+    <form action="RegistroVehiculo" method="POST">
+        <div class="campo">
+            <input type="text" name="placaVehiculo" maxlength="6" oninput="this.value = this.value.toUpperCase()" pattern="^(?=(?:\D*\d){2})(?=(?:[^0-9]*[a-zA-Z]){3})[a-zA-Z0-9]{6}$">
+            <label>Placa de vehiculo</label>
+        </div>
+        <div class="campo">
+            <input type="text" name="tipoVehiculo" id="tipoVehiculoid"  required>
+            <label>Tipo de vehiculo</label>
+        </div>
+        <script src="{{url_for('static', filename='./js/mostrarContra.js')}}"></script>
+        <button class="btn" onclick="validarFormularioVehiculo()">Registrar</button>
+    </form>
+    <script>
+        document.querySelector('.btn').addEventListener('click', function(event) {
+            if (!confirm('¿Desea registrar los datos?')) {
+                event.preventDefault();
+            }
+        });
+    </script>
+</div>
+</body>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+.parqueadero{
+  position: absolute;
+  background-color: #238276;
+  width: 300px;
+  height: 200px;
+  border-radius: 22px;
+  left: 10%;
+  top:63% ;
+
+
+  
+}
+.parqueadero2{
+  position: absolute;
+  background-color: #238276;
+  width: 300px;
+  height: 200px;
+  border-radius: 22px;
+  left: 10%;
+  top: 35%;
+  
+}
+
+.material-symbols-outlined{
+  font-size: 100px;
+  
+}
+
+
+h3{
+  text-align: center;
+}
+
+.hora{
+  background-color: #238276;
+  width: 300px;
+  height: 200px;
+  border-radius: 22px;
+  position: absolute;
+  right: 200px;
+}
+

@@ -1,0 +1,32 @@
+{% extends "plantilla_base.html" %}
+{% block title %}Home{% endblock %}
+{% block name %}Incicio{% endblock %}
+{% block content %}
+<body>
+    <a href="{{url_for('eleccionAd')}}">Volver</a>
+
+    <div class="prueba">
+        
+        <header>
+            
+            
+            <div class="contenedor" id="uno">
+                <a href="/ListaUsuarios"><p class="texto">Usuarios</p></a>
+            </div>
+            <div class="contenedor" id="dos">
+                <a href="/ListaVisitantes"><p class="texto">Visitantes</p></a>
+            </div>
+            <div class="contenedor" id="tres">
+                <a href="/ListaVehiculo"><p class="texto">Vehiculos</p></a>
+            </div>
+            <div class="contenedor" id="cuatro">
+                <a href="/ListaArtefactosExternos"><p class="texto">Artefactos Externos</p></a>
+            </div>
+            <div class="contenedor" id="cinco">
+                <a href="/listaEstadovisitante"><p class="texto">Estado Visitante</p></a>
+            </div>
+            
+        </header>
+    </div>
+</body>
+{% endblock %}

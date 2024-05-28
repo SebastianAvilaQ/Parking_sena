@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tabla de datos</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</head>
+<body>
+	<h1>Tabla de datos</h1>
+	<table>
+		<thead>
+			<tr>
+				<th name="#">id</th>
+				<th name="placa">Placa</th>
+				<th name="horaSalida">Hora Salida</th>
+				<th name="fechaSalida">Fecha Salida</th>
+				<th scope="col">edit</th>
+				<th scope="col">Eliminar</th>
+
+				
+			</tr>
+		</thead>
+		<tbody>
+			{%  for sv in data %}
+				<tr>
+					<td>{{sv.idSalidapk}}</td>
+					<td>{{sv.placa}}</td>
+					<td>{{sv.horaSalida}}</td>
+					<td>{{sv.fechaSalida}}</td>
+					
+					<td><a href="{{url_for('deleteSalidaVehiculo',idSalidapk=sv.idSalidapk)}}" class="btn btn-danger btn-sm">delete</a></td>
+                    <td><button class="btn btn-primary btn-sm" id="btn-edit{{sv.idSalidapk}}" data-bs-toggle="modal" data-bs-target="#modal{{sv.idSalidapk}}">edit</button></td>
+				</tr>
+				
+                <!--modal-->
+				<div class="modal fade" id="modal{{sv.idSalidapk}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h1 class="modal-title fs-5" id="exampleModalLabel">{{sv.placa}}</h1>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+							<form action="/editSalidaVehiculo/{{sv.idSalidapk}}" method="POST">
+									<label>Placa</label>
+									<input type="text" class="form-control mb-3" name="placa" value="{{sv.placa}}">
+									<label>Hora Entrada</label>
+									<input type="text" class="form-control mb-3" name="horaSalida" value="{{sv.horaSalida}}">
+									<label>Fecha Entrada</label>
+									<input type="text" class="form-control mb-3" name="fechaSalida"value="{{sv.fechaSalida}}">
+							</div>
+							<div class="modal-footer">
+								<button type="submit" class="btn btn-primary">Guardar Cambios</button>
+							</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				
+
+		
+			{% endfor %}
+        </tbody>
+	</table>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tabla de datos</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <link rel="" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css">
+</head>
+<body>
+	<a class="volver" href="{{url_for('AdminAd')}}">Volver</a>
+	<h1>Tabla de Estado Visitantes</h1>
+	<table id="example" class="display"  style="width:100%">
+		<thead>
+			<tr>
+				<th name="#">id</th>
+				<th name="fechaEstado">Fecha Estado</th>
+				<th name="horaEstado">Hora Estado</th>
+				<th name="tipoEstado">tipo Estado</th>
+				
+
+				
+			</tr>
+		</thead>
+		<tbody>
+			{%  for ev in data %}
+				<tr>
+					<td>{{ev.idEstadoPk}}</td>
+					<td>{{ev.fechaEstado}}</td>
+					<td>{{ev.horaEstado}}</td>
+					<td>{{ev.tipoEstado}}</td>
+					
+				</tr>
+
+				<!--modal-->
+				<div class="modal fade" id="modal{{ev.idEstadoPk}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h1 class="modal-title fs-5" id="exampleModalLabel">{{ev.idEstadoPk}}</h1>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+							<form action="/editEntradaVehiculo/{{ev.idEstadoPk}}" method="POST">
+								<label>Placa</label>
+								<input type="text" class="form-control mb-3" name="placaEntrada" maxlength="6" oninput="this.value = this.value.toUpperCase()" pattern="^(?=(?:\D*\d){2})(?=(?:[^0-9]*[a-zA-Z]){3})[a-zA-Z0-9]{6}$" value="{{ev.placaEntrada}}" required>
+								<label>Hora Entrada</label>
+								<input type="time" class="form-control mb-3" name="horaEntrada" value="{{ev.fechaEstado}}" required>
+								<label>Fecha Entrada</label>
+								<input type="date" class="form-control mb-3" name="fechaEntrada"value="{{ev.horaEstado}}" required>
+							</div>
+							<div class="modal-footer">
+								<button type="submit" class="btn btn-primary">Guardar Cambios</button>
+							</div>
+							</form>
+							<script>
+								document.getElementById('btn-edit-{{ev.idEstadoPk}}').addEventListener('click', function(event) {
+									if (!confirm('¿Desea guardar estos datos?')) {
+										event.preventDefault();
+									}
+									});
+							</script>
+						</div>
+					</div>
+				</div>
+				
+
+		
+			{% endfor %}
+
+			<a href="{{ url_for('generar_reporte_Entrada') }}" class="btn btn-primary">Descargar PDF</a>
+        </tbody>
+	</table>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+
+<script>
+
+	$(document).ready(function(){
+		var table = $('#example').DataTable({
+			orderCellsTop: true,
+			fixedHeader: true 
+		});
+	
+		//Creamos una fila en el head de la tabla y lo clonamos para cada columna
+		$('#example thead tr').clone(true).appendTo( '#example thead' );
+	
+		$('#example thead tr:eq(1) th').each( function (i) {
+			var title = $(this).text(); //es el nombre de la columna
+			$(this).html( '<input type="text" placeholder="Buscar...'+title+'" />' );
+	
+			$( 'input', this ).on( 'keyup change', function () {
+				if ( table.column(i).search() !== this.value ) {
+					table
+						.column(i)
+						.search( this.value )
+						.draw();
+				}
+			} );
+		} );   
+	});	
+	</script>
+</body>
+</html>
